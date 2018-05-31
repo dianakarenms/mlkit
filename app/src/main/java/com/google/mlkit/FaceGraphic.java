@@ -12,18 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.firebase.samples.apps.mlkit.facedetection;
+package com.google.mlkit;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.google.android.gms.vision.CameraSource;
 import com.google.firebase.ml.vision.common.FirebaseVisionPoint;
 import com.google.firebase.ml.vision.face.FirebaseVisionFace;
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark;
-import com.google.firebase.samples.apps.mlkit.GraphicOverlay;
-import com.google.firebase.samples.apps.mlkit.GraphicOverlay.Graphic;
+import com.google.mlkit.GraphicOverlay;
+import com.google.mlkit.GraphicOverlay.Graphic;
 
 /**
  * Graphic instance for rendering face position, orientation, and landmarks within an associated
@@ -32,8 +31,6 @@ import com.google.firebase.samples.apps.mlkit.GraphicOverlay.Graphic;
 public class FaceGraphic extends Graphic {
   private static final float FACE_POSITION_RADIUS = 10.0f;
   private static final float ID_TEXT_SIZE = 40.0f;
-  private static final float ID_Y_OFFSET = 50.0f;
-  private static final float ID_X_OFFSET = -50.0f;
   private static final float BOX_STROKE_WIDTH = 5.0f;
 
   private static final int[] COLOR_CHOICES = {
@@ -90,35 +87,6 @@ public class FaceGraphic extends Graphic {
     float x = translateX(face.getBoundingBox().centerX());
     float y = translateY(face.getBoundingBox().centerY());
     canvas.drawCircle(x, y, FACE_POSITION_RADIUS, facePositionPaint);
-    canvas.drawText("id: " + face.getTrackingId(), x + ID_X_OFFSET, y + ID_Y_OFFSET, idPaint);
-    canvas.drawText(
-        "happiness: " + String.format("%.2f", face.getSmilingProbability()),
-        x + ID_X_OFFSET * 3,
-        y - ID_Y_OFFSET,
-        idPaint);
-    if (facing == CameraSource.CAMERA_FACING_FRONT) {
-      canvas.drawText(
-          "right eye: " + String.format("%.2f", face.getRightEyeOpenProbability()),
-          x - ID_X_OFFSET,
-          y,
-          idPaint);
-      canvas.drawText(
-          "left eye: " + String.format("%.2f", face.getLeftEyeOpenProbability()),
-          x + ID_X_OFFSET * 6,
-          y,
-          idPaint);
-    } else {
-      canvas.drawText(
-          "left eye: " + String.format("%.2f", face.getLeftEyeOpenProbability()),
-          x - ID_X_OFFSET,
-          y,
-          idPaint);
-      canvas.drawText(
-          "right eye: " + String.format("%.2f", face.getRightEyeOpenProbability()),
-          x + ID_X_OFFSET * 6,
-          y,
-          idPaint);
-    }
 
     // Draws a bounding box around the face.
     float xOffset = scaleX(face.getBoundingBox().width() / 2.0f);

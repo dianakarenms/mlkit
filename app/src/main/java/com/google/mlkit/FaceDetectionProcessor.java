@@ -11,21 +11,17 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package com.google.firebase.samples.apps.mlkit.facedetection;
+package com.google.mlkit;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.face.FirebaseVisionFace;
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector;
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions;
-import com.google.firebase.samples.apps.mlkit.FrameMetadata;
-import com.google.firebase.samples.apps.mlkit.GraphicOverlay;
-import com.google.firebase.samples.apps.mlkit.VisionProcessorBase;
 
 import java.io.IOException;
 import java.util.List;
