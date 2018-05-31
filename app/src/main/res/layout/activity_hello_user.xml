@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="30dp">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/first_txt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What do you want to order?"/>
+        android:text="Hello human costumer"
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_centerInParent="true"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/second_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/first_txt"
+        android:paddingTop="10dp"
+        android:text="Do you want some green cookies??"
+        android:textColor="#37964b"
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

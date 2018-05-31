@@ -14,6 +14,7 @@
 package com.google.mlkit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -112,7 +113,7 @@ public final class LivePreviewActivity extends AppCompatActivity
     public void run() {
       // If 3 minutes have passed since the face was found...
       if (System.currentTimeMillis() > lastFaceFoundTime + MIN_FACE_FOUND_PERIOD - 50) {
-        seCancelaTodo();
+        startActivity(new Intent(LivePreviewActivity.this, HelloUserActivity.class));
         Log.d(TAG, "Activity!");
       }
     }
@@ -167,6 +168,7 @@ public final class LivePreviewActivity extends AppCompatActivity
     super.onResume();
     Log.d(TAG, "onResume");
     startCameraSource();
+    seCancelaTodo();
   }
 
   /** Stops the camera. */
